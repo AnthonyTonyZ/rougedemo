@@ -1,0 +1,6 @@
+[
+null,
+{"id":1,"battlerName":"Actor3_5","characterIndex":4,"characterName":"Actor3","classId":1,"equips":[1,1,2,3,0],"faceIndex":4,"faceName":"Actor3","traits":[],"initialLevel":1,"maxLevel":99,"name":"尤利(·Caesar/精灵)·暮锤","nickname":"","note":"","profile":""},
+{"id":2,"battlerName":"Actor1_1","characterIndex":0,"characterName":"Actor1","classId":2,"equips":[1,1,2,3,0],"faceIndex":0,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"比尔·白爪","nickname":"","note":"","profile":""},
+{"id":3,"battlerName":"Actor2_1","characterIndex":0,"characterName":"Actor2","classId":3,"equips":[3,0,2,3,4],"faceIndex":0,"faceName":"Actor2","traits":[],"initialLevel":1,"maxLevel":99,"name":"安德森·霜狼","nickname":"","note":"","profile":""}
+]
