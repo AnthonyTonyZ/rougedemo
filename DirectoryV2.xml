@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <trees>
+     <tree path="/data/Map002.json" title="初始房" extension="json"/>
+     <tree path="/data/Map001.json" title="普通房" extension="json"/>
+     <tree path="/data/Map003.json" title="石洞" extension="json"/>
+     <tree path="/data/Map004.json" title="冰洞" extension="json"/>
+     <tree path="/data/Map005.json" title="诅咒山洞" extension="json"/>
+     <tree path="/data/Map006.json" title="熔岩洞" extension="json"/>
+     <tree path="/data/Map007.json" title="宝箱房" extension="json"/>
+     <tree path="/data/Map008.json" title="boss房" extension="json"/>
+     <tree path="/js/plugins/YEP_ItemCore.js" title="物品属性随机浮动" extension="js"/>
+     <tree path="/js/plugins/SilvItemLogEnhanced.js" title="增强物品拾取提示" extension="js"/>
+     <tree path="/data/Map009.json" title="junit" extension="json"/>
+    <tree path="/data/Map010.json" title="重新刷新宝箱" extension="json"/>
+</trees>
