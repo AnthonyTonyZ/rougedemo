@@ -220,6 +220,7 @@ function getRandomStatesForMV(count, max) {
     // console.log(Choices)
     // console.log("gh_sl_max:",Zgn.RanCho.gh_sl_max,"GainStateIdRef",Zgn.RanCho.GainStateIdRef.length)
     //提前设置光环测试
+    // console.log("队伍中角色",$gameParty.members())
     if (Zgn.RanCho.gh_sl_max > Zgn.RanCho.gh_sl_now) {
         SceneManager.push(Scene_StateChoice);
     }
@@ -234,7 +235,8 @@ function cleanRandomStatesForMV() {
     Zgn.RanCho.xz_sl_now = Zgn.RanCho.xz_sl;
     Zgn.RanCho.gh_sl_now = 0;
     for (let i = 0; i < Zgn.RanCho.GainStateIdRef.length; i++) {
-        $gameActors.actor(1).removeState(Zgn.RanCho.GainStateIdRef[i].state.id);
+        // $gameActors.actor(1)
+        $gameParty.members()[0].removeState(Zgn.RanCho.GainStateIdRef[i].state.id);
     }
 }
 
@@ -315,7 +317,7 @@ Scene_StateChoice.prototype.confirmOk = function () {
         let state = Zgn.RanCho.GainStateIdRef[i];
         if (state.name === item.name) {
             console.log("同名buff移除", state.state.id)
-            $gameActors.actor(1).removeState(state.state.id);
+            $gameParty.members()[0].removeState(state.state.id);
             Zgn.RanCho.GainStateIdRef.splice(i, 1);
             // item=state;
             break; // 找到后跳出循环
@@ -331,7 +333,9 @@ Scene_StateChoice.prototype.confirmOk = function () {
         'state': item
     });
     //endregion
-    $gameActors.actor(1).addState(item.id);
+    //改为给队伍中第一个人,赋予光环
+    // $gameActors.actor(1).addState(item.id);
+    $gameParty.members()[0].addState(item.id);
 
     //推出界面
     this.doExitScene();

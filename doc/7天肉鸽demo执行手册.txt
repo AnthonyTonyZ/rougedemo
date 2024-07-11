@@ -77,14 +77,51 @@
 		}
 	}
 	装备32
+	随即效果√
+	测试光环{√
+		
+	}
 
-第五天：UI与音效 ×
+/*第五天：UI与音效 × 2024-07-11 09:11:06  星期四,第四天,后续的全部改为测试与调试,最后一天上线
 设计UI界面：为游戏设计简洁明了的UI界面，包括主菜单、背包、战斗界面等。
-添加音效：为游戏中的各种事件（如战斗、行走、技能释放等）添加音效，提升游戏体验。
+添加音效：为游戏中的各种事件（如战斗、行走、技能释放等）添加音效，提升游戏体验。*/
 
-第六天：测试与调试
+/*第六天：测试与调试 ×
 全面测试：对游戏进行多次测试，确保没有明显的bug和逻辑错误。
-优化性能：根据测试结果调整游戏性能，确保游戏在大多数设备上都能流畅运行。
+优化性能：根据测试结果调整游戏性能，确保游戏在大多数设备上都能流畅运行。*/
+
+测试内容_001{
+	物价√
+	光环{√
+		获得了两次且没清除
+	}
+	代码{√
+		Failed to load: img/battlebacks2/Grassland.png  //默认战斗背景
+	}
+	光环显示 √
+		原生 √
+		使用YEP_StatusMenuCore √
+		再加 DreamX_StateDescriptions√
+		敌人状态×
+			有图标但是没反应
+		Battle Engine Core > In-Battle Status 战斗状态查看×
+			BattleEngineCore
+		Buffs & States Core 效果状态核心 ×
+			YEP_BuffsStatesCore.js
+	文本汉化 √
+	}
+	之前的光环没有清理,光环的持续有问题,√
+		[肉鸽demo] Zgn_RandomChoices "confirmOk" line 334 (lv7)//赋值
+			$gameParty
+			$gameParty.members()
+		[肉鸽demo] Zgn_RandomChoices "cleanRandomStatesForMV" line 233 (lv7)//清理
+			$gameActors.actor(1).removeState(Zgn.RanCho.GainStateIdRef[i].state.id);
+	遇敌概率
+	// 宝箱反馈
+	路线执行流程好像有问题
+	随机掉落
+	上来就获得3及暴击光环
+	
 
 第七天：整理与发布
 整理项目文件：整理游戏项目中的所有文件，确保它们有序且易于管理。
