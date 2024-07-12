@@ -121,7 +121,7 @@ DataManager.processRCNotetags = function (group) {
     }
     // console.log('processRCNotetags',Zgn.RanCho.StateIdRef,'选项池',Zgn.RanCho.StateNameRef)
 
-    Zgn.RanCho.StateNameRefInit=Zgn.RanCho.StateNameRef;
+    Zgn.RanCho.StateNameRefInit = JSON.parse(JSON.stringify(Zgn.RanCho.StateNameRef));
 };
 
 
@@ -213,8 +213,8 @@ function getRandomStatesForMV(count, max) {
 function cleanRandomStatesForMV() {
     Zgn.RanCho.xz_sl_now = Zgn.RanCho.xz_sl;
     Zgn.RanCho.gh_sl_now = 0;
-    Zgn.RanCho.StateNameRef=Zgn.RanCho.StateNameRefInit;
-    console.log('清理后StateNameRef',Zgn.RanCho.StateNameRef,Zgn.RanCho.StateNameRefInit)
+    Zgn.RanCho.StateNameRef = JSON.parse(JSON.stringify(Zgn.RanCho.StateNameRefInit));
+    // console.log('清理后StateNameRef',Zgn.RanCho.StateNameRef,Zgn.RanCho.StateNameRefInit)
     for (let i = 0; i < Zgn.RanCho.GainStateIdRef.length; i++) {
         // $gameActors.actor(1)
         $gameParty.members()[0].removeState(Zgn.RanCho.GainStateIdRef[i].state.id);

@@ -1,7 +1,7 @@
 [
 null,
 {"id":1,"expanded":true,"name":"普通房","order":2,"parentId":0,"scrollX":1092,"scrollY":602.6666666666666},
-{"id":2,"expanded":false,"name":"初始房","order":1,"parentId":0,"scrollX":819,"scrollY":452},
+{"id":2,"expanded":false,"name":"初始房","order":1,"parentId":0,"scrollX":1092,"scrollY":602.6666666666666},
 {"id":3,"expanded":false,"name":"石洞","order":5,"parentId":1,"scrollX":1081.3333333333333,"scrollY":837.3333333333334},
 {"id":4,"expanded":false,"name":"冰洞","order":6,"parentId":1,"scrollX":1081.3333333333333,"scrollY":1328},
 {"id":5,"expanded":false,"name":"被诅咒的山洞","order":4,"parentId":1,"scrollX":1318.6666666666667,"scrollY":1808},
@@ -9,6 +9,6 @@ null,
 {"id":7,"expanded":false,"name":"宝箱房","order":7,"parentId":0,"scrollX":1092,"scrollY":602.6666666666666},
 {"id":8,"expanded":false,"name":"boss房","order":8,"parentId":0,"scrollX":811,"scrollY":1668},
 {"id":9,"expanded":true,"name":"junit","order":9,"parentId":0,"scrollX":819,"scrollY":452},
-{"id":10,"expanded":false,"name":"重复刷新宝箱","order":10,"parentId":9,"scrollX":819,"scrollY":452},
-{"id":11,"expanded":false,"name":"MAP011","order":11,"parentId":9,"scrollX":819,"scrollY":452.5}
+{"id":10,"expanded":false,"name":"重复刷新宝箱","order":10,"parentId":9,"scrollX":1092,"scrollY":602.6666666666666},
+{"id":11,"expanded":false,"name":"MAP011","order":11,"parentId":9,"scrollX":1092,"scrollY":602.6666666666666}
 ]
