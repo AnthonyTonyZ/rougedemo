@@ -80,6 +80,7 @@ DataManager.processRCNotetags = function (group) {
     //所有状态
     Zgn.RanCho.StateIdRef = [];//所有状态选项
     Zgn.RanCho.StateNameRef = [];//选项池数据
+    Zgn.RanCho.StateNameRefInit = [];//初始数据
     // Zgn.RanCho.StateNameRefNow =[];//当前选项池
     // console.log("自定义脚本获取parameters",parameters)
     // console.log("自定义脚本获取xz_sl_4,test[英文参数]",Zgn.RanCho.xz_sl,Zgn.RanCho.test)
@@ -119,6 +120,8 @@ DataManager.processRCNotetags = function (group) {
 
     }
     // console.log('processRCNotetags',Zgn.RanCho.StateIdRef,'选项池',Zgn.RanCho.StateNameRef)
+
+    Zgn.RanCho.StateNameRefInit=Zgn.RanCho.StateNameRef;
 };
 
 
@@ -130,7 +133,7 @@ DataManager.processRCNotetags = function (group) {
  * @author zgn
  */
 function getRandomStates(statesObj, count) {
-    console.log('processRCNotetags', Zgn.RanCho.StateIdRef, '选项池', Zgn.RanCho.StateNameRef)
+    console.log('processRCNotetags', Zgn.RanCho.StateIdRef, '选项池', statesObj)
     if (statesObj.length < count) {
         console.log("可供选择的buff数不足")
     }
@@ -180,30 +183,6 @@ function getRandomStates(statesObj, count) {
 
 }
 
-/*// 示例使用
-const states = {
-    "无法战斗": 1, "防御": 2, "不死之身": 3, "中毒": 4, "黑暗": 5,
-    "沉默": 6, "愤怒": 7, "混乱": 8, "魅惑": 9, "睡眠": 10
-};
-
-// 第一次选择
-const firstChoices = getRandomStates(states, Zgn.RanCho.xz_sl);
-console.log(firstChoices);
-
-// 第二次选择（此时不能选择第一次选择过的状态）
-const secondChoices = getRandomStates(Zgn.RanCho.StateIdRef, Zgn.RanCho.xz_sl, firstChoices.map(obj => Object.keys(obj)[0]));
-console.log(secondChoices);
-
-// 第三次选择（此时可以重新选择第一次的状态，但不能选择第二次的状态）
-const thirdChoices = getRandomStates(Zgn.RanCho.StateIdRef, Zgn.RanCho.xz_sl, secondChoices.map(obj => Object.keys(obj)[0]));
-console.log(thirdChoices);
-
-//脚本可以调用本方法
-var test_fun = function(s){
-    $gameMessage.add(s);
-}
-*/
-
 /**
  * @description 低于[最大光环数]弹窗获取随机'状态'
  * @param count {Number} 随机数
@@ -234,6 +213,8 @@ function getRandomStatesForMV(count, max) {
 function cleanRandomStatesForMV() {
     Zgn.RanCho.xz_sl_now = Zgn.RanCho.xz_sl;
     Zgn.RanCho.gh_sl_now = 0;
+    Zgn.RanCho.StateNameRef=Zgn.RanCho.StateNameRefInit;
+    console.log('清理后StateNameRef',Zgn.RanCho.StateNameRef,Zgn.RanCho.StateNameRefInit)
     for (let i = 0; i < Zgn.RanCho.GainStateIdRef.length; i++) {
         // $gameActors.actor(1)
         $gameParty.members()[0].removeState(Zgn.RanCho.GainStateIdRef[i].state.id);
