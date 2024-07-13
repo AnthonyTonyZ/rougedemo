@@ -152,3 +152,33 @@
 整理项目文件：整理游戏项目中的所有文件，确保它们有序且易于管理。
 制作demo视频或截图：为游戏demo制作宣传视频或截图，以便向他人展示。
 发布demo：将游戏demo发布到合适的平台（如Steam、Itch.io等），并附上游戏介绍和玩法说明。
+
+免费发布{
+	Gitee Pages 下架了 ×
+	GitHub Pages 要梯子 ×
+	5地址[国内免费静态页面发布]{
+		https://cloud.tencent.com/developer/article/1987796
+			一眼相中
+			https://www.4everland.org/
+			搜索 https://www.4everland.org/怎么用
+			指导文档
+			https://zhuanlan.zhihu.com/p/410795378
+				https://dashboard.4everland.org/overview
+				注册账号
+
+				翻墙查看资料{×
+					梯子失效
+						没用
+						https://blog.csdn.net/qq_55544903/article/details/123292557 
+
+						edge 获取插件 download interrupted
+
+						更新edge
+				}换火狐{
+					禁止升级 https://blog.csdn.net/deb_ug/article/details/110818718
+				}
+
+				迁移项目到github
+	}
+	
+}
