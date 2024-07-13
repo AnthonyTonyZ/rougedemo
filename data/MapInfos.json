@@ -10,5 +10,5 @@ null,
 {"id":8,"expanded":false,"name":"boss房","order":8,"parentId":0,"scrollX":811,"scrollY":1668},
 {"id":9,"expanded":true,"name":"junit","order":9,"parentId":0,"scrollX":819,"scrollY":452},
 {"id":10,"expanded":false,"name":"重复刷新宝箱","order":10,"parentId":9,"scrollX":1092,"scrollY":602.6666666666666},
-{"id":11,"expanded":false,"name":"MAP011","order":11,"parentId":9,"scrollX":1092,"scrollY":602.6666666666666}
+{"id":11,"expanded":false,"name":"MAP011","order":11,"parentId":9,"scrollX":1092,"scrollY":603.3333333333334}
 ]

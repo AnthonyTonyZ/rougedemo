@@ -164,7 +164,7 @@
 			指导文档
 			https://zhuanlan.zhihu.com/p/410795378
 				https://dashboard.4everland.org/overview
-				注册账号
+				注册账号√
 
 				翻墙查看资料{×
 					梯子失效
@@ -178,7 +178,24 @@
 					禁止升级 https://blog.csdn.net/deb_ug/article/details/110818718
 				}
 
-				迁移项目到github
+				迁移项目到github√
+					无法推送到github 超时×
+						tortoisegit 怎么设置代理×
+
+					设置token√
+					https://blog.csdn.net/u014175572/article/details/55510825
+
+				4everland Import Git Repository找不到项目 √
+					火狐是个垃圾
+
+				等待部署是个漫长的时间{√
+					4everland context deadline exceeded
+					Not found
+				}
+
+				部署成功了
+
+				 
 	}
 	
 }
