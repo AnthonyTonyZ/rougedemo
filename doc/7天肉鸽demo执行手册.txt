@@ -153,49 +153,215 @@
 制作demo视频或截图：为游戏demo制作宣传视频或截图，以便向他人展示。
 发布demo：将游戏demo发布到合适的平台（如Steam、Itch.io等），并附上游戏介绍和玩法说明。
 
-免费发布{
+免费发布{√
 	Gitee Pages 下架了 ×
 	GitHub Pages 要梯子 ×
 	5地址[国内免费静态页面发布]{
 		https://cloud.tencent.com/developer/article/1987796
-			一眼相中
-			https://www.4everland.org/
-			搜索 https://www.4everland.org/怎么用
-			指导文档
-			https://zhuanlan.zhihu.com/p/410795378
-				https://dashboard.4everland.org/overview
-				注册账号√
+			一眼相中 4everland ×
+				https://www.4everland.org/
+				搜索 https://www.4everland.org/怎么用
+				指导文档
+				https://zhuanlan.zhihu.com/p/410795378
+					https://dashboard.4everland.org/overview
+					注册账号√
 
-				翻墙查看资料{×
-					梯子失效
-						没用
-						https://blog.csdn.net/qq_55544903/article/details/123292557 
+					翻墙查看资料{×
+						梯子失效
+							没用
+							https://blog.csdn.net/qq_55544903/article/details/123292557 
 
-						edge 获取插件 download interrupted
+							edge 获取插件 download interrupted
 
-						更新edge
-				}换火狐{
-					禁止升级 https://blog.csdn.net/deb_ug/article/details/110818718
-				}
+							更新edge
+					}换火狐{
+						禁止升级 https://blog.csdn.net/deb_ug/article/details/110818718
+					}
 
-				迁移项目到github√
-					无法推送到github 超时×
-						tortoisegit 怎么设置代理×
+					迁移项目到github√
+						无法推送到github 超时×
+							tortoisegit 怎么设置代理×
 
-					设置token√
-					https://blog.csdn.net/u014175572/article/details/55510825
+						设置token√
+						https://blog.csdn.net/u014175572/article/details/55510825
 
-				4everland Import Git Repository找不到项目 √
-					火狐是个垃圾
+					4everland Import Git Repository找不到项目 √
+						火狐是个垃圾
 
-				等待部署是个漫长的时间{√
-					4everland context deadline exceeded
-					Not found
-				}
+					等待部署是个漫长的时间{√
+						4everland context deadline exceeded
+						Not found
+					}
 
-				部署成功了
+					部署成功了{√
+						https://rougedemo-gyfl8fqo-anthonytonyz.4everland.app/
+						第一次加载要3-5min
+							火狐,edge 按下f12 确认所有加载资源200,报错则刷新
+							egde首次打开需要 依旧打开
+						缓存有问题
 
+						4everland 部署打开的时间很长
+					}
+
+			次选	Netlify √
+				https://zhuanlan.zhihu.com/p/55252024
+
+			阿里云自建 ×
+				https://wanwang.aliyun.com/newdomain/1yuan?_v_=47edc66742fe36fc0a839ea5700b8cd5&keyword=rougedemo
 				 
 	}
-	
 }
+
+40h 左右 perfect 
+宣发
+
+4000评论
+
+--------------------文本--------------------
+    // 大纲是否需要铺垫完善
+    任务(剑圣,魔法,龙 信息收集的坑)
+    玩法
+
+    鉴赏优秀的作品
+    // 搜索合适的地图×
+    梳理剧情
+        开局不需要讲太多的背景,比如四族情况,场景需要什么在添加什么,最后美化的时候,逐阶段放送
+
+    找一个方便模仿又比较有趣的,抄袭
+
+--------------------每日target--------------------
+    // 1.离队情况依据对内真实情况 √
+    // 2.任务判定失败 √(除了分支剧情,主线剧情不成功无法推进)
+    3.野怪没有依据队伍等级提升(需要网络)
+        怪物等级同步
+        https://www.bilibili.com/video/BV1Xy421q7mo
+    4.技能树没用起来(需要网络)
+    5.升级无法自动获取技能/等一些列反馈(需要网络)
+    // 6.新增测试无敌技能√
+    // 7.从后续场景回到前面[剧情推进和关卡]√
+    8.前期荒滩难顶的过程可以模仿
+        异元-地劫黎明//详见need.txt
+    9.将游戏拆分成3种{
+        1.肉鸽玩法//特性
+        2.地图探索
+        3.文字剧情
+    }
+    
+    战斗中tp会随机波动
+    buff取消没有抵扣次数
+    队伍最多4人
+    杂项技能无法查看
+    冒险者(残暴)被击败后无法隐藏称号
+    // YEP_VictoryAftermath的使用√
+
+--------------------选项相关数据--------------------
+    StateNameRef{//选项池
+        [{
+            'name':nameInfo[1],
+            'maxversion':1,
+            'minversion':1
+        }]
+    }
+
+    StateIdRef{//所有buff
+        [{
+                'id':obj.id,
+                'name':nameInfo[1],
+                'enabled':true,
+                'desc':obj.message3,
+                'version':nameInfo[2]
+            }
+        ]
+    }
+
+    GainStateIdRef{//所有获得的buff
+        [{
+        'name':nameState.name,
+        'state':nameState
+        }]
+    }
+
+    getRandomStates后数据格式{
+        [
+          {
+            "1": {
+              "id": 14,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "2"
+            }
+          },
+          {
+            "2": {
+              "id": 15,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "3"
+            }
+          },
+          {
+            "0": {
+              "id": 13,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "1"
+            }
+          }
+        ]
+    }
+
+    目前系统选项{
+        rc_物理克制_1
+        rc_物理克制_2
+        rc_物理克制_3
+        rc_中毒_1
+        rc_中毒_2
+        rc_黑暗_1
+        rc_黑暗_2
+        rc_沉默_1
+        rc_沉默_2
+        rc_愤怒_1
+        rc_愤怒_2
+        rc_魅惑_1
+        rc_魅惑_2
+        rc_睡眠_1
+        rc_睡眠_2
+    }
+    
+--------------------地图数据--------------------
+    // Galv.MAPT.setLocation(0,"荒滩","loc_mansion",844,420,1,5,5,"地处兽人部落的外围，地势荒凉，食物资源匮乏");
+    // Galv.MAPT.setLocation(0,"中土","loc_mansion",329,523,12,7,5,"百国争霸!");
+    // Galv.MAPT.setLocation(0,"人兽战场","loc_mansion",452,432,16,7,5,"残酷之地");
+    // Galv.MAPT.setLocation(0,"精灵","loc_mansion",1564,232,10,7,5,"那群看起来最像他的人所在的地方");
+    // Galv.MAPT.setLocation(0,"海族王庭","loc_mansion",1212,480,8,7,5,"插曲!");
+    // Galv.MAPT.setLocation(0,"人兽战场2阶段","loc_mansion",724,364,17,7,6,"终章");
+
+    // Galv.MAPT.enableLocation(0,"荒滩",false);
+    // Galv.MAPT.enableLocation(0,"中土",false);
+    // Galv.MAPT.enableLocation(0,"人兽战场",false);
+    // Galv.MAPT.enableLocation(0,"精灵",false);
+    // Galv.MAPT.enableLocation(0,"海族王庭",false);
+    // Galv.MAPT.enableLocation(0,"人兽战场2阶段",false);
+
+    // Galv.MAPT.enableLocation(0,"荒滩",true);
+    // Galv.MAPT.enableLocation(0,"中土",true);
+    // Galv.MAPT.enableLocation(0,"人兽战场",true);
+    // Galv.MAPT.enableLocation(0,"精灵",true);
+    // Galv.MAPT.enableLocation(0,"海族王庭",true);
+    // Galv.MAPT.enableLocation(0,"人兽战场2阶段",true);
+
+    // Galv.MAPT.initLocation("荒滩");
+    // Galv.MAPT.setObject(0,"Player","obj_player",874,450,2);
+    // Galv.MAPT.initLocation("中土");
+    // Galv.MAPT.setObject(0,"Player","obj_player",359,553,2);
+    // Galv.MAPT.initLocation("人兽战场");
+    // Galv.MAPT.setObject(0,"Player","obj_player",482,462,2);
+    // Galv.MAPT.initLocation("精灵");
+    // Galv.MAPT.setObject(0,"Player","obj_player",1594,262,2);
+    // Galv.MAPT.initLocation("海族王庭");
+    // Galv.MAPT.setObject(0,"Player","obj_player",1242,510,2);
+    // Galv.MAPT.initLocation("人兽战场2阶段");
+    // Galv.MAPT.setObject(0,"Player","obj_player",754,394,2);
