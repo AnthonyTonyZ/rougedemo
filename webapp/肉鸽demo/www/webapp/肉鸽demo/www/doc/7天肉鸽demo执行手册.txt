@@ -1,0 +1,367 @@
+第一天：项目规划与基础设置
+// 确定游戏概念：明确肉鸽元素（如随机生成地图、永久死亡、道具和敌人随机性等）与RPG元素的结合方式。
+// 安装与配置RPGMV：确保RPGMV软件已安装，并熟悉其基本操作界面。
+// 创建新项目：设置项目名称、分辨率、帧率等基本参数。
+设计角色与敌人：初步设计玩家角色和几种基础敌人的外观与属性。{
+      精_精灵4人组
+      海_海族4人组
+}
+
+第二天：地图与事件设计
+// 设计随机地图生成机制：利用RPGMV的插件或脚本功能，实现地图的随机生成。如果时间紧迫，可以先设计几个固定的地图作为demo。 '地图迁移'
+// 创建地图：在RPGMV中绘制或导入地图素材，创建游戏场景。
+设置事件：为地图上的各个区域设置事件，如
+	敌人遭遇 (5-7-9)还需要调整{
+		遇敌概率
+		站位问题,√
+		还有重复魔法技能√
+	}
+	宝箱开启√
+		绿 2 药水
+		黄 3 有概率宝箱怪 1/4 药水 护甲
+		蓝 4 有概率宝箱怪 2/5 药水 护甲 武器
+		橙 1 武器 
+	NPC对话{
+		完全没处理,没有灵魂今天
+	}
+
+第三天：角色与战斗系统
+/*完善角色属性：为玩家角色和敌人设置详细的属性（如生命值、攻击力、防御力等）。{
+	需要构建详细的测试案例
+		[junit] 肉鸽demo.excelJunit "数据战斗模拟_egMax"
+		读取数据成功√
+		纯物理系伤害计算√
+		法系伤害{√
+			抽取伤害计算公式√
+				使用阿里{×
+
+					报错1 
+					"if(a.calType){" +
+					            "    b.hp=b.hp-(a.atk*30-b.def*25);" +
+					            "}else{" +
+					            "    b.hp=b.hp-(a.mat*30-b.mdf*25);" +
+					            "}"
+
+					报错2 
+					"if(a.calType){" +
+					            "    b.hp=b.hp-(a.atk*30-b.def*25);" +
+					            "}";
+					报错3
+					b.hp=b.hp-(a.atk*30-b.def*25)
+
+					b.hp-(a.atk*30-b.def*25)
+				}
+		}
+		制作战力排行榜√
+}*/
+// 实现战斗系统：配置战斗界面，设置战斗逻辑（如回合制、即时战斗等），并确保角色和敌人能正常进行战斗。{
+	石洞 7
+	冰洞 9
+	被诅咒的山洞 9
+	熔岩洞 7
+	boss房 10
+
+	重新设置遇敌步数(...)
+}
+// 添加肉鸽元素：在战斗系统中融入随机性，如、随机技能效果等。
+
+第四天：道具与装备(52)系统 随机掉落物品
+设计道具与装备：创建多种道具和装备，并为它们设置不同的效果。
+实现获取与使用：为道具和装备设置获取途径（如战斗掉落、商店购买等），并确保玩家能在游戏中正常使用它们。
+	武器20{
+		测试武器属性√
+		属性克制表√
+			https://wiki.52poke.com/wiki/属性相克表
+		测试属性克制{
+			小怪属性设置√
+		}
+	}
+	装备32
+	随即效果√
+	测试光环{√
+		上来就获得3及暴击光环{
+		    选项池 json 深拷贝
+		}
+	}
+
+/*第五天：UI与音效 × 2024-07-11 09:11:06  星期四,第四天,后续的全部改为测试与调试,最后一天上线
+设计UI界面：为游戏设计简洁明了的UI界面，包括主菜单、背包、战斗界面等。
+添加音效：为游戏中的各种事件（如战斗、行走、技能释放等）添加音效，提升游戏体验。*/
+
+/*第六天：测试与调试 ×
+全面测试：对游戏进行多次测试，确保没有明显的bug和逻辑错误。
+优化性能：根据测试结果调整游戏性能，确保游戏在大多数设备上都能流畅运行。*/
+
+测试内容_d01{
+	物价√
+	光环{√
+		获得了两次且没清除
+	}
+	代码{√
+		Failed to load: img/battlebacks2/Grassland.png  //默认战斗背景
+	}
+	光环显示 √
+		原生 √
+		使用YEP_StatusMenuCore √
+		再加 DreamX_StateDescriptions√
+		敌人状态×
+			有图标但是没反应
+		Battle Engine Core > In-Battle Status 战斗状态查看×
+			BattleEngineCore
+		Buffs & States Core 效果状态核心 ×
+			YEP_BuffsStatesCore.js
+	文本汉化 √
+	}
+	之前的光环没有清理,光环的持续有问题,√
+		[肉鸽demo] Zgn_RandomChoices "confirmOk" line 334 (lv7)//赋值
+			$gameParty
+			$gameParty.members()
+		[肉鸽demo] Zgn_RandomChoices "cleanRandomStatesForMV" line 233 (lv7)//清理
+			$gameActors.actor(1).removeState(Zgn.RanCho.GainStateIdRef[i].state.id);
+	// 宝箱反馈
+
+测试内容_d02{
+	测试剑圣
+		剑圣_001
+		熊_001
+		狼_001
+
+	遇敌概率√
+	随机掉落√
+	    随即宝箱√
+	    新增 物品独立属性√
+	    <Random Variance: 3>
+	文本交互√
+	    \C[4]剑圣的历练\C[0]的\C[4]荒滩\C[0]地段部分故事,就不细说了
+	    属性克制
+	        格斗系:克制一般、岩石、钢、冰、恶属性,对飞行、毒、虫、超能系效果减半,对幽灵无效果
+	        \C[4]物理\C[0]:克制[土,冰,暗],对[风,光]效果减半
+	        \C[4]风\C[0]:克制物理,对[土,雷]效果减半
+	        \C[4]土\C[0]:克制[风,炎,冰],对物理效果减半
+	        \C[4]炎\C[0]:克制冰,对[风,土,炎,水]效果减半
+	        \C[4]水\C[0]:克制[土,炎]
+	        \C[4]雷\C[0]:克制[风,水]对雷效果减半
+	        \C[4]光\C[0]:克制物理,对光效果减半,对恶无效果
+	        \C[4]冰\C[0]:克制物理,对[炎,水,冰]效果减半
+	        \C[4]暗\C[0]:克制光,对[物理,暗]效果减半
+	// 光环图标
+	// 路线执行流程好像有问题
+}
+
+第七天：整理与发布
+整理项目文件：整理游戏项目中的所有文件，确保它们有序且易于管理。
+制作demo视频或截图：为游戏demo制作宣传视频或截图，以便向他人展示。
+发布demo：将游戏demo发布到合适的平台（如Steam、Itch.io等），并附上游戏介绍和玩法说明。
+
+免费发布{√
+	Gitee Pages 下架了 ×
+	GitHub Pages 要梯子 ×
+	5地址[国内免费静态页面发布]{
+		https://cloud.tencent.com/developer/article/1987796
+			一眼相中 4everland ×
+				https://www.4everland.org/
+				搜索 https://www.4everland.org/怎么用
+				指导文档
+				https://zhuanlan.zhihu.com/p/410795378
+					https://dashboard.4everland.org/overview
+					注册账号√
+
+					翻墙查看资料{×
+						梯子失效
+							没用
+							https://blog.csdn.net/qq_55544903/article/details/123292557 
+
+							edge 获取插件 download interrupted
+
+							更新edge
+					}换火狐{
+						禁止升级 https://blog.csdn.net/deb_ug/article/details/110818718
+					}
+
+					迁移项目到github√
+						无法推送到github 超时×
+							tortoisegit 怎么设置代理×
+
+						设置token√
+						https://blog.csdn.net/u014175572/article/details/55510825
+
+					4everland Import Git Repository找不到项目 √
+						火狐是个垃圾
+
+					等待部署是个漫长的时间{√
+						4everland context deadline exceeded
+						Not found
+					}
+
+					部署成功了{√
+						https://rougedemo-gyfl8fqo-anthonytonyz.4everland.app/
+						第一次加载要3-5min
+							火狐,edge 按下f12 确认所有加载资源200,报错则刷新
+							egde首次打开需要 依旧打开
+						缓存有问题
+
+						4everland 部署打开的时间很长
+					}
+
+			次选	Netlify √
+				https://zhuanlan.zhihu.com/p/55252024
+
+			阿里云自建 ×
+				https://wanwang.aliyun.com/newdomain/1yuan?_v_=47edc66742fe36fc0a839ea5700b8cd5&keyword=rougedemo
+				 
+	}
+}
+
+40h 左右 perfect 
+宣发
+
+4000评论
+
+--------------------文本--------------------
+    // 大纲是否需要铺垫完善
+    任务(剑圣,魔法,龙 信息收集的坑)
+    玩法
+
+    鉴赏优秀的作品
+    // 搜索合适的地图×
+    梳理剧情
+        开局不需要讲太多的背景,比如四族情况,场景需要什么在添加什么,最后美化的时候,逐阶段放送
+
+    找一个方便模仿又比较有趣的,抄袭
+
+--------------------每日target--------------------
+    // 1.离队情况依据对内真实情况 √
+    // 2.任务判定失败 √(除了分支剧情,主线剧情不成功无法推进)
+    3.野怪没有依据队伍等级提升(需要网络)
+        怪物等级同步
+        https://www.bilibili.com/video/BV1Xy421q7mo
+    4.技能树没用起来(需要网络)
+    5.升级无法自动获取技能/等一些列反馈(需要网络)
+    // 6.新增测试无敌技能√
+    // 7.从后续场景回到前面[剧情推进和关卡]√
+    8.前期荒滩难顶的过程可以模仿
+        异元-地劫黎明//详见need.txt
+    9.将游戏拆分成3种{
+        1.肉鸽玩法//特性
+        2.地图探索
+        3.文字剧情
+    }
+    
+    战斗中tp会随机波动
+    buff取消没有抵扣次数
+    队伍最多4人
+    杂项技能无法查看
+    冒险者(残暴)被击败后无法隐藏称号
+    // YEP_VictoryAftermath的使用√
+
+--------------------选项相关数据--------------------
+    StateNameRef{//选项池
+        [{
+            'name':nameInfo[1],
+            'maxversion':1,
+            'minversion':1
+        }]
+    }
+
+    StateIdRef{//所有buff
+        [{
+                'id':obj.id,
+                'name':nameInfo[1],
+                'enabled':true,
+                'desc':obj.message3,
+                'version':nameInfo[2]
+            }
+        ]
+    }
+
+    GainStateIdRef{//所有获得的buff
+        [{
+        'name':nameState.name,
+        'state':nameState
+        }]
+    }
+
+    getRandomStates后数据格式{
+        [
+          {
+            "1": {
+              "id": 14,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "2"
+            }
+          },
+          {
+            "2": {
+              "id": 15,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "3"
+            }
+          },
+          {
+            "0": {
+              "id": 13,
+              "name": "物理克制",
+              "enabled": true,
+              "desc": "物理克制中",
+              "version": "1"
+            }
+          }
+        ]
+    }
+
+    目前系统选项{
+        rc_物理克制_1
+        rc_物理克制_2
+        rc_物理克制_3
+        rc_中毒_1
+        rc_中毒_2
+        rc_黑暗_1
+        rc_黑暗_2
+        rc_沉默_1
+        rc_沉默_2
+        rc_愤怒_1
+        rc_愤怒_2
+        rc_魅惑_1
+        rc_魅惑_2
+        rc_睡眠_1
+        rc_睡眠_2
+    }
+    
+--------------------地图数据--------------------
+    // Galv.MAPT.setLocation(0,"荒滩","loc_mansion",844,420,1,5,5,"地处兽人部落的外围，地势荒凉，食物资源匮乏");
+    // Galv.MAPT.setLocation(0,"中土","loc_mansion",329,523,12,7,5,"百国争霸!");
+    // Galv.MAPT.setLocation(0,"人兽战场","loc_mansion",452,432,16,7,5,"残酷之地");
+    // Galv.MAPT.setLocation(0,"精灵","loc_mansion",1564,232,10,7,5,"那群看起来最像他的人所在的地方");
+    // Galv.MAPT.setLocation(0,"海族王庭","loc_mansion",1212,480,8,7,5,"插曲!");
+    // Galv.MAPT.setLocation(0,"人兽战场2阶段","loc_mansion",724,364,17,7,6,"终章");
+
+    // Galv.MAPT.enableLocation(0,"荒滩",false);
+    // Galv.MAPT.enableLocation(0,"中土",false);
+    // Galv.MAPT.enableLocation(0,"人兽战场",false);
+    // Galv.MAPT.enableLocation(0,"精灵",false);
+    // Galv.MAPT.enableLocation(0,"海族王庭",false);
+    // Galv.MAPT.enableLocation(0,"人兽战场2阶段",false);
+
+    // Galv.MAPT.enableLocation(0,"荒滩",true);
+    // Galv.MAPT.enableLocation(0,"中土",true);
+    // Galv.MAPT.enableLocation(0,"人兽战场",true);
+    // Galv.MAPT.enableLocation(0,"精灵",true);
+    // Galv.MAPT.enableLocation(0,"海族王庭",true);
+    // Galv.MAPT.enableLocation(0,"人兽战场2阶段",true);
+
+    // Galv.MAPT.initLocation("荒滩");
+    // Galv.MAPT.setObject(0,"Player","obj_player",874,450,2);
+    // Galv.MAPT.initLocation("中土");
+    // Galv.MAPT.setObject(0,"Player","obj_player",359,553,2);
+    // Galv.MAPT.initLocation("人兽战场");
+    // Galv.MAPT.setObject(0,"Player","obj_player",482,462,2);
+    // Galv.MAPT.initLocation("精灵");
+    // Galv.MAPT.setObject(0,"Player","obj_player",1594,262,2);
+    // Galv.MAPT.initLocation("海族王庭");
+    // Galv.MAPT.setObject(0,"Player","obj_player",1242,510,2);
+    // Galv.MAPT.initLocation("人兽战场2阶段");
+    // Galv.MAPT.setObject(0,"Player","obj_player",754,394,2);
